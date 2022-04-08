@@ -29,7 +29,9 @@ Las ventas pueden ser en efectivo o con tarjeta. En el caso que sea con tarjeta,
 
 Como solución realicé un diagrama de clases, empezando por la clase Venta como centro del análisis.
 
-![Imagen del diagrama de clases](https://github.com/mfiandrino/DDS-K3053-ViernesNoche/01-Macowins/EjercicioMacowins.jpeg)
+![Imagen del diagrama de clases](https://raw.githubusercontent.com/mfiandrino/DDS-K3053-ViernesNoche/master/01-Macowins/EjercicioMacowins.jpeg)
+
+
 
 **Observación:** a la hora de modelar el medio de pago, había pensado crear un atributo "medioDePago" y aplicar composición con las clases "Efectivo" y "Tarjeta", pero al notar que la clase Efectivo no iba a tener ningun comportamiento (solo dejar el precio total como estaba) decidí no aplicarlo. Para modelar los intereses al pagar con tarjeta de crédito decidí crear una clase "VentaConTarjeta" que hereda de Venta, ya que lo pensé como un caso particular de Venta donde se sobreescribiría el método "montoTotal()" para añadirle los intereses.
 
