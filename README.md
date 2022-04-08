@@ -1,2 +1,8 @@
-# DDS-K3053-ViernesNoche
-Repositorio para la cursada de Diseño de Sistemas - Curso: K3053 - Turno: Viernes Noche
+# Diseño de Sistemas
+
+- ## **Nombre:** Maximiliano
+- ## **Apellido:** Fiandrino
+- ## **Curso:** K3053
+- ## **Año de Cursada:** 2022
+- ## **Turno:** Viernes Noche
+
