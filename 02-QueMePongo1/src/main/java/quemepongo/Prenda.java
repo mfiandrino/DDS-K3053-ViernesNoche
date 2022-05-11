@@ -24,6 +24,18 @@ public class Prenda {
     this.colorSecundario = colorSecundario;
   }
 
+  public Material getMaterial() {
+    return material;
+  }
+
+  public Color getColorPrimario() {
+    return colorPrimario;
+  }
+
+  public Color getColorSecundario() {
+    return colorSecundario;
+  }
+
   public Categoria getCategoria() {
     return tipoDePrenda.getCategoria();
   }
