@@ -35,11 +35,14 @@ Y luego, al consultar más sobre este requerimiento general, logramos descompone
 ## Solución
 
 ### Requerimientos:
-- 1\) El usuario quiere que le proponga un atuendo, conformado por distintas prendas, en base a los factores climáticos y a las preferencias estéticas del usuario
-- 2\) El usuario quiere poder cargar prendas válidas, definiendo el tipo de prenda, la categoría, el material, el color primario, el color secundario(opcional)
-- 3\) El usuario quiere evitar que haya prendas cuya categoría no se condiga con su tipo
+ El usuario quiere poder cargar prendas válidas, lo que engloba:
+- 1\) El usuario quiere especificar el tipo de prenda.
+- 2\) El usuario quiere identificar a que categoria pertenece cada prenda.
+- 3\) El usuario quiere especificar de que material está hecha la prenda.
+- 4\) El usuario quiere indicar un color primario para cada prenda.
+- 5\) El usuario quiere indicar un color secundario (opcional) para cada prenda.
+- 6\) El usuario quiere que no existan prendas sin tipo, material, categoria o color.
+- 7\) El usuario quiere evitar que haya prendas cuya categoría no se condiga con su tipo.
 
-Como solución diseñé un diagrama de clases:
+El diagrama de clases de la solución:
 ![Imagen del diagrama de clases](https://raw.githubusercontent.com/mfiandrino/DDS-K3053-ViernesNoche/master/02-QueMePongo1/EjercicioQueMePongo1.jpeg)
-
-**Nota**: El código en Java lo estoy haciendo todavía. 
