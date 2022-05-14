@@ -8,13 +8,19 @@ public class PrendaTest {
 
   @Test
   public void unZapatoEsDeCategoriaCalzado() {
-    Prenda zapatos = new Prenda(TipoDePrenda.ZAPATO, Material.CUERO, new Color(0, 0, 0));
+    Prenda zapatos = new Prenda(TipoDePrenda.ZAPATO, Material.CUERO, new Color(0, 0, 0),null, Trama.A_CUADROS);
     assertEquals(zapatos.getCategoria().toString(), "CALZADO");
   }
 
   @Test
   public void unCamisaEsDeCategoriaSuperior() {
-    Prenda unaCamisa = new Prenda(TipoDePrenda.CAMISA, Material.ALGODON, new Color(0, 0, 0));
+    Prenda unaCamisa = new Prenda(TipoDePrenda.CAMISA, Material.ALGODON, new Color(0, 0, 0),null,Trama.A_CUADROS);
     assertEquals(unaCamisa.getCategoria().toString(), "SUPERIOR");
+  }
+
+  @Test
+  public void laTramaDeUnaPrendaEsLisaSiElUsuarioNoLaEspecifica() {
+    Prenda unPantalon = new Prenda(TipoDePrenda.PANTALON,Material.ALGODON,new Color(0,0,0),null,null);
+    assertEquals("LISA", unPantalon.getTrama().toString());
   }
 }
