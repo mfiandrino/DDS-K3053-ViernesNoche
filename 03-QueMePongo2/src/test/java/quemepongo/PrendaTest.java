@@ -1,6 +1,7 @@
 package quemepongo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,8 +20,14 @@ public class PrendaTest {
   }
 
   @Test
+  public void tipoMaterialYColorPrimarioNoPuedenEstarVacios() {
+    assertThrows(NullPointerException.class, () -> new Prenda(null, null, null, null, null));
+  }
+
+  @Test
   public void laTramaDeUnaPrendaEsLisaSiElUsuarioNoLaEspecifica() {
-    Prenda unPantalon = new Prenda(TipoDePrenda.PANTALON,Material.ALGODON,new Color(0,0,0),null,null);
+    Prenda unPantalon = new Prenda(TipoDePrenda.PANTALON, Material.ALGODON,new Color(0,0,0),null,null);
     assertEquals("LISA", unPantalon.getTrama().toString());
   }
+
 }

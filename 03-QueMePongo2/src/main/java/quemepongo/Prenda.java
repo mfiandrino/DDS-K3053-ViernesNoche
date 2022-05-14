@@ -14,9 +14,9 @@ public class Prenda {
                 Color colorPrimario,
                 Color colorSecundario,
                 Trama trama) {
-    this.tipoDePrenda = tipoDePrenda;
-    this.material = material;
-    this.colorPrimario = colorPrimario;
+    this.tipoDePrenda = requireNonNull(tipoDePrenda, "El tipo de prenda es obligatorio");
+    this.material = requireNonNull(material, "El material es obligatorio");
+    this.colorPrimario = requireNonNull(colorPrimario, "El color primario es obligatorio");
     this.colorSecundario = colorSecundario;
     if (trama == null) {
       this.trama = Trama.LISA;
