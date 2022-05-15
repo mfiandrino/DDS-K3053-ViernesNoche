@@ -41,3 +41,6 @@ BONUS:Por otro lado, el equipo de producto está analizando potenciales futuras 
 - 4\) El usuario quiere guardar un borrador de la última prenda que empezó a cargar
 - 5\) El usuario quiere poder no indicar ninguna trama para una tela, y que por defecto ésta sea lisa.
 - 6\) El usuario quiere poder guardar una prenda solamente si esta es válida 
+
+El diagrama de clases de la solución:
+![Imagen del diagrama de clases](https://raw.githubusercontent.com/mfiandrino/DDS-K3053-ViernesNoche/master/03-QueMePongo2/EjercicioQueMePongo2.jpeg)
