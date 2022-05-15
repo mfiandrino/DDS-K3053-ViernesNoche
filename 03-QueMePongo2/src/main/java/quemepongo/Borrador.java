@@ -7,9 +7,11 @@ public class Borrador {
   private Material material;
   private Color colorPrimario;
   private Color colorSecundario;
-  private Trama trama = Trama.LISA;
+  private Trama trama;
 
-  public Borrador() {}
+  public Borrador() {
+    this.trama = Trama.LISA;
+  }
 
   public void setTipoDePrenda(TipoDePrenda tipoDePrenda) {
     this.tipoDePrenda = tipoDePrenda;
