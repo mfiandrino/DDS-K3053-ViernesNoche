@@ -20,14 +20,20 @@ public class PrendaTest {
   }
 
   @Test
-  public void tipoMaterialYColorPrimarioNoPuedenEstarVacios() {
-    assertThrows(NullPointerException.class, () -> new Prenda(null, null, null, null, null));
+  public void tipoPrendaMaterialYColorPrimarioNoPuedenEstarVacios() {
+    Borrador unaCamisaBorrador = new Borrador();
+    assertThrows(NullPointerException.class, () -> unaCamisaBorrador.crearPrenda());
   }
 
   @Test
   public void laTramaDeUnaPrendaEsLisaSiElUsuarioNoLaEspecifica() {
-    Prenda unPantalon = new Prenda(TipoDePrenda.PANTALON, Material.ALGODON,new Color(0,0,0),null,null);
-    assertEquals("LISA", unPantalon.getTrama().toString());
-  }
+    Borrador unPantalonBorrador = new Borrador();
+    unPantalonBorrador.setTipoDePrenda(TipoDePrenda.PANTALON);
+    unPantalonBorrador.setMaterial(Material.ALGODON);
+    unPantalonBorrador.setColorPrimario(new Color(0,0,0));
 
+    Prenda pantalonDefinitivo = unPantalonBorrador.crearPrenda();
+
+    assertEquals("LISA", pantalonDefinitivo.getTrama().toString());
+  }
 }

@@ -1,7 +1,5 @@
 package quemepongo;
 
-import static java.util.Objects.requireNonNull;
-
 public class Prenda {
   private TipoDePrenda tipoDePrenda;
   private Material material;
@@ -14,15 +12,11 @@ public class Prenda {
                 Color colorPrimario,
                 Color colorSecundario,
                 Trama trama) {
-    this.tipoDePrenda = requireNonNull(tipoDePrenda, "El tipo de prenda es obligatorio");
-    this.material = requireNonNull(material, "El material es obligatorio");
-    this.colorPrimario = requireNonNull(colorPrimario, "El color primario es obligatorio");
+    this.tipoDePrenda = tipoDePrenda;
+    this.material = material;
+    this.colorPrimario = colorPrimario;
     this.colorSecundario = colorSecundario;
-    if (trama == null) {
-      this.trama = Trama.LISA;
-    } else {
-      this.trama = trama;
-    }
+    this.trama = trama;
   }
 
   public Material getMaterial() {
