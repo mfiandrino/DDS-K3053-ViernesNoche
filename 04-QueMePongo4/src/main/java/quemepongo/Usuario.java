@@ -21,10 +21,15 @@ public class Usuario {
     List<Prenda> prendasDeLaCategoria = this.prendas
         .stream()
         .filter(p -> p.getCategoria() == categoria)
+        .filter(this::prendaPasaLimiteDeTemperatura)
         .collect(Collectors.toList());
 
     Integer randomIndex = new Random().nextInt(prendasDeLaCategoria.size());
 
     return prendasDeLaCategoria.get(randomIndex);
+  }
+
+  public Boolean prendaPasaLimiteDeTemperatura(Prenda prenda) {
+    return prenda.getTempMaxima() > servicioMeteorologico.getTemperature("Buenos Aires, Argentina");
   }
 }
