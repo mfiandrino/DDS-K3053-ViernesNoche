@@ -19,6 +19,10 @@ public class Prenda {
     this.trama = trama;
   }
 
+  public TipoDePrenda getTipoDePrenda() {
+    return tipoDePrenda;
+  }
+
   public Material getMaterial() {
     return material;
   }

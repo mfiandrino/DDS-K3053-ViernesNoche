@@ -9,7 +9,7 @@ public enum TipoDePrenda {
   REMERA(Categoria.SUPERIOR),
   CAMISA(Categoria.SUPERIOR),
   COLLAR(Categoria.ACCESORIO),
-  GOORA(Categoria.ACCESORIO);
+  GORRA(Categoria.ACCESORIO);
   private Categoria categoria;
 
   TipoDePrenda(Categoria categoria) {
