@@ -1,0 +1,117 @@
+@startuml
+class Color{
+red: Integer
+green: Integer
+blue: Integer
+getters()
+}
+
+enum Trama{
+LISA,
+RAYADA,
+CON_LUNARES,
+A CUADROS,
+ESTAMPADO  
+}
+
+enum Material{
+ALGODON,
+POLIESTER,
+LINO,
+LANA,
+SEDA,
+CUERO
+}
+
+enum TipoDePrenda{
+ZAPATO,
+ZAPATILLA,
+PANTALON,
+SHORT,
+CAMISA,
+REMERA,
+COLLAR,
+GORRA;
+
+categoria: Categoria
+tempMaxima: Integer
+
+TipoDePrenda(categoria, tempMaxima)
+getCategoria(): Categoria
+getTempMaxima(): Integer
+}
+
+enum Categoria{
+ACCESORIO,
+SUPERIOR,
+INFERIOR,
+CALZADO
+}
+
+class Prenda{
+tipoDePrenda: TipoDeprenda
+material: Material
+colorPrincipal: Color
+colorSecundario: Color
+trama: Trama
+
+Prenda(tipoDePrenda,material,colorPrimario,colorSecundario,trama)
+getTempMaxima(): Integer
+getCategoria(): Categoria
+getters()
+}
+
+class Borrador{
+tipoDePrenda: TipoDeprenda
+material: Material
+colorPrincipal: Color
+colorSecundario: Color
+trama: Trama
+
+Borrador()
+crearPrenda(): Prenda
+setters()
+}
+
+class Atuendo{
+prendaAccesorio: Prenda
+prendaSuperior: Prenda
+prendaInferior: Prenda
+prendaCalzado: Prenda
+}
+
+class Usuario{
+prendas: [Prenda]
+servicioMeteorologico: ServicioMeteorologico
+
+generarAtuendo(): Atuendo
+}
+
+interface ServicioMeteorologico{
+getTemperature(location): Integer
+}
+
+class ServicioAccuWeather{
+getTemperature(location): Integer
+}
+
+Categoria <-- TipoDePrenda
+
+Color <-- Borrador
+Trama <-- Borrador
+Material <-- Borrador
+TipoDePrenda <-- Borrador
+
+Color <-- Prenda
+Trama <-- Prenda
+Material <-- Prenda
+TipoDePrenda <-- Prenda
+
+Prenda <.. Borrador
+
+ServicioMeteorologico <|.. ServicioAccuWeather
+ServicioMeteorologico <-- Usuario
+Prenda <-- Usuario
+Atuendo <.. Usuario
+
+@enduml

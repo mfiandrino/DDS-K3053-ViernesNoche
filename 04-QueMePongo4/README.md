@@ -40,3 +40,6 @@ Y nos cobra 0,05 USD por cada vez que la llamamos a partir del décimo llamado d
 - 3\) El usuario quiere que al generar una sugerencia las prendas sean acordes a la temperatura actual sabiendo que para cada prenda habrá una temperatura hasta la cual es adecuada
 - 4\) El administrador quiere poder configurar fácilmente diferentes servicios de obtención del clima para ajustarme a las cambiantes condiciones económicas
 - 5\) Los stakeholders quieren poder asegurar la calidad de mi aplicación sin incurrir en costos innecesarios
+
+El diagrama de clases de la solución:
+![Imagen del diagrama de clases](https://raw.githubusercontent.com/mfiandrino/DDS-K3053-ViernesNoche/master/04-QueMePongo4/EjercicioQueMePongo4.png)
