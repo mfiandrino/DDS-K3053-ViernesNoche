@@ -24,7 +24,8 @@ Además, tras investigar en el mercado encontramos que la conocida empresa AccuW
 En su documentación, incluyen el siguiente ejemplo de uso:
 ~~~
 AccuWeatherAPI apiClima = new AccuWeatherAPI();
-List<Map<String, Object>> condicionesClimaticas = apiClima.getWeather(“Buenos Aires, Argentina”);  condicionesClimaticas.get(0).get("PrecipitationProbability"); //Devuelve un número del 0 al 1
+List<Map<String, Object>> condicionesClimaticas = apiClima.getWeather(“Buenos Aires, Argentina”);  
+condicionesClimaticas.get(0).get("PrecipitationProbability"); //Devuelve un número del 0 al 1
 ~~~
 
 Y nos cobra 0,05 USD por cada vez que la llamamos a partir del décimo llamado diario.
