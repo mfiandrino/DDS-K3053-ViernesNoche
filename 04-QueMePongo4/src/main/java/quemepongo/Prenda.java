@@ -38,11 +38,12 @@ public class Prenda {
   public Categoria getCategoria() {
     return tipoDePrenda.getCategoria();
   }
-  public Integer getTempMaxima() {
-    return tipoDePrenda.getTempMaxima();
-  }
 
   public Trama getTrama() {
     return trama;
+  }
+
+  public Boolean esAptaParaTemperatura(Integer temperatura) {
+    return tipoDePrenda.esAptaParaTemperatura(temperatura);
   }
 }

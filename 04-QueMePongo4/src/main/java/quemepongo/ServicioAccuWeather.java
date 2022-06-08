@@ -7,7 +7,10 @@ public class ServicioAccuWeather implements ServicioMeteorologico {
 
   @Override
   public Integer getTemperature(String location) {
-    Map<String, Object> hashTemperature = (Map<String, Object>) apiClima.getWeather(location).get(0).get("Temperature");
+    Map<String, Object> hashTemperature = (Map<String, Object>) apiClima
+        .getWeather(location)
+        .get(0)
+        .get("Temperature");
     return (Integer) hashTemperature.get("Value");
   }
 }

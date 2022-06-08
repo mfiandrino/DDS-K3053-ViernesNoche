@@ -22,7 +22,8 @@ public enum TipoDePrenda {
   public Categoria getCategoria() {
     return categoria;
   }
-  public Integer getTempMaxima() {
-    return tempMaxima;
+
+  public Boolean esAptaParaTemperatura(Integer temperatura) {
+    return temperatura <= this.tempMaxima;
   }
 }
