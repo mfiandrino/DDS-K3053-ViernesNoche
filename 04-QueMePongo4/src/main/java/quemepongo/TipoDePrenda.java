@@ -4,7 +4,7 @@ public enum TipoDePrenda {
 
   ZAPATO(Categoria.CALZADO, 40),
   ZAPATILLA(Categoria.CALZADO, 60),
-  PANTALON(Categoria.INFERIOR, 30),
+  PANTALON(Categoria.INFERIOR, 20),
   SHORT(Categoria.INFERIOR, 60),
   REMERA(Categoria.SUPERIOR, 60),
   REMERA_MANGA_LARGA(Categoria.SUPERIOR, 20),

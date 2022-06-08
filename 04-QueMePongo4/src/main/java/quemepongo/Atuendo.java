@@ -15,4 +15,20 @@ public class Atuendo {
     this.prendaInferior = prendaInferior;
     this.prendaCalzado = prendaCalzado;
   }
+
+  public Prenda getPrendaAccesorio() {
+    return prendaAccesorio;
+  }
+
+  public Prenda getPrendaSuperior() {
+    return prendaSuperior;
+  }
+
+  public Prenda getPrendaInferior() {
+    return prendaInferior;
+  }
+
+  public Prenda getPrendaCalzado() {
+    return prendaCalzado;
+  }
 }

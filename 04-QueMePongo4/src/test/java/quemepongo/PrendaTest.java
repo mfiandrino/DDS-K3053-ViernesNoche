@@ -26,22 +26,4 @@ public class PrendaTest {
         Trama.A_CUADROS);
     assertEquals(unaCamisa.getCategoria().toString(), "SUPERIOR");
   }
-
-  @Test
-  public void tipoPrendaMaterialYColorPrimarioNoPuedenEstarVacios() {
-    Borrador unaCamisaBorrador = new Borrador();
-    assertThrows(NullPointerException.class, () -> unaCamisaBorrador.crearPrenda());
-  }
-
-  @Test
-  public void laTramaDeUnaPrendaEsLisaSiElUsuarioNoLaEspecifica() {
-    Borrador unPantalonBorrador = new Borrador();
-    unPantalonBorrador.setTipoDePrenda(TipoDePrenda.PANTALON);
-    unPantalonBorrador.setMaterial(Material.ALGODON);
-    unPantalonBorrador.setColorPrimario(new Color(0, 0, 0));
-
-    Prenda pantalonDefinitivo = unPantalonBorrador.crearPrenda();
-
-    assertEquals("LISA", pantalonDefinitivo.getTrama().toString());
-  }
 }
