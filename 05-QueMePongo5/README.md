@@ -24,3 +24,4 @@ Por ahora, comenzaremos atacando los siguientes requerimientos específicos:
 ## Solución
 
 El diagrama de clases de la solución:
+![Imagen del diagrama de clases](https://raw.githubusercontent.com/mfiandrino/DDS-K3053-ViernesNoche/master/05-QueMePongo5/EjercicioQueMePongo5.png)
