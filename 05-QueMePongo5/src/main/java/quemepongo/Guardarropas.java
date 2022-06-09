@@ -34,4 +34,16 @@ public class Guardarropas {
     }
     return unaPrenda;
   }
+
+  public void agregarPrenda(Prenda prenda) {
+    this.prendasDisponibles.add(prenda);
+  }
+
+  public void quitarPrenda(Prenda prenda) {
+    this.prendasDisponibles.remove(prenda);
+  }
+
+  public List<Prenda> getPrendasDisponibles() {
+    return prendasDisponibles;
+  }
 }
