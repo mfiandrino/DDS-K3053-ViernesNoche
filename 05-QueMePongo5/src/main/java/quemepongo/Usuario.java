@@ -1,5 +1,6 @@
 package quemepongo;
 
+import java.util.ArrayList;
 import java.util.List;
 import quemepongo.command.Agregar;
 import quemepongo.command.Propuesta;
@@ -12,9 +13,13 @@ public class Usuario {
 
   public Usuario(List<Guardarropas> guardarropas) {
     this.guardarropas = guardarropas;
+    this.propuestasPendientes = new ArrayList<>();
+    this.propuestasAceptadas = new ArrayList<>();
   }
 
-  public void proponerAgregarPrendaA(Usuario otroUsuario, Guardarropas guardarropas, Prenda prenda) {
+  public void proponerAgregarPrendaA(Usuario otroUsuario,
+                                     Guardarropas guardarropas,
+                                     Prenda prenda) {
     otroUsuario.guardarPropuesta(new Agregar(guardarropas, prenda));
   }
 
@@ -28,6 +33,14 @@ public class Usuario {
 
   public List<Guardarropas> getGuardarropas() {
     return guardarropas;
+  }
+
+  public List<Propuesta> getPropuestasPendientes() {
+    return propuestasPendientes;
+  }
+
+  public List<Propuesta> getPropuestasAceptadas() {
+    return propuestasAceptadas;
   }
 
   public void aceptarPropuesta(Propuesta propuesta) {
