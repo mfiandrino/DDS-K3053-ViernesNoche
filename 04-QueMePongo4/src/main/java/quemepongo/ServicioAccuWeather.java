@@ -3,7 +3,7 @@ package quemepongo;
 import java.util.Map;
 
 public class ServicioAccuWeather implements ServicioMeteorologico {
-  AccuWeatherAPI apiClima = new AccuWeatherAPI();
+  AccuWeatherApi apiClima = new AccuWeatherApi();
 
   @Override
   public Integer getTemperature(String location) {
