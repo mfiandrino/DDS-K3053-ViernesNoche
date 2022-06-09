@@ -14,7 +14,7 @@ class UsuarioTest {
 
   private Usuario unUsuario;
   private Usuario otroUsuario;
-  private Guardarropas unGuardarropas;
+  private Guardarropa unGuardarropa;
   private List<Prenda> prendas;
   private Prenda collar;
   private Prenda remera;
@@ -33,67 +33,67 @@ class UsuarioTest {
     prendas.add(jeans);
     prendas.add(zapatillas);
 
-    unGuardarropas = new Guardarropas(prendas, null);
+    unGuardarropa = new Guardarropa(prendas, null);
 
-    List<Guardarropas> listaGuardarropas = new ArrayList<>();
-    listaGuardarropas.add(unGuardarropas);
+    List<Guardarropa> guardarropas = new ArrayList<>();
+    guardarropas.add(unGuardarropa);
 
-    unUsuario = new Usuario(listaGuardarropas);
-    otroUsuario = new Usuario(listaGuardarropas);
+    unUsuario = new Usuario(guardarropas);
+    otroUsuario = new Usuario(guardarropas);
   }
 
   @Test
-  void dosUsuariosPuedenCompartirGuardarropas() {
-    assertTrue(unUsuario.getGuardarropas().contains(unGuardarropas));
-    assertTrue(otroUsuario.getGuardarropas().contains(unGuardarropas));
+  void dosUsuariosPuedenCompartirGuardarropa() {
+    assertTrue(unUsuario.getGuardarropas().contains(unGuardarropa));
+    assertTrue(otroUsuario.getGuardarropas().contains(unGuardarropa));
   }
 
   @Test
   void siUnUsuarioProponeAgregarUnaPrendaSeLeAgregaComoPropuestaPendiente() {
     Prenda nuevaPrenda = new Prenda(null, null, null, null, null);
-    unUsuario.proponerAgregarPrendaA(otroUsuario, unGuardarropas, nuevaPrenda);
+    unUsuario.proponerAgregarPrendaA(otroUsuario, unGuardarropa, nuevaPrenda);
 
     assertEquals(1, otroUsuario.getPropuestasPendientes().size());
   }
 
   @Test
   void siUnUsuarioProponeQuitarUnaPrendaSeLeAgregaComoPropuestaPendiente() {
-    unUsuario.proponerQuitarPrendaA(otroUsuario, unGuardarropas, collar);
+    unUsuario.proponerQuitarPrendaA(otroUsuario, unGuardarropa, collar);
 
     assertEquals(1, otroUsuario.getPropuestasPendientes().size());
   }
 
   @Test
-  void siUnUsuarioAceptaUnaPropuestaPendienteDeAgregarPrendaSeAgregaASuGuardarropasYSeAlmacenaComoPropuestaAceptada() {
+  void siUnUsuarioAceptaUnaPropuestaPendienteDeAgregarPrendaSeAgregaASuGuardarropaYSeAlmacenaComoPropuestaAceptada() {
     Prenda nuevaPrenda = new Prenda(null, null, null, null, null);
-    unUsuario.proponerAgregarPrendaA(otroUsuario, unGuardarropas, nuevaPrenda);
+    unUsuario.proponerAgregarPrendaA(otroUsuario, unGuardarropa, nuevaPrenda);
 
     Propuesta laPropuesta = otroUsuario.getPropuestasPendientes().stream().findFirst().orElse(null);
 
-    assertFalse(unGuardarropas.getPrendasDisponibles().contains(nuevaPrenda));
+    assertFalse(unGuardarropa.getPrendasDisponibles().contains(nuevaPrenda));
     otroUsuario.aceptarPropuesta(laPropuesta);
-    assertTrue(unGuardarropas.getPrendasDisponibles().contains(nuevaPrenda));
+    assertTrue(unGuardarropa.getPrendasDisponibles().contains(nuevaPrenda));
 
     assertEquals(1, otroUsuario.getPropuestasAceptadas().size());
   }
 
   @Test
-  void siUnUsuarioAceptaUnaPropuestaPendienteDeQuitarPrendaSeEliminaDeSuGuardarropasYSeAlmacenaComoPropuestaAceptada() {
-    unUsuario.proponerQuitarPrendaA(otroUsuario, unGuardarropas, collar);
+  void siUnUsuarioAceptaUnaPropuestaPendienteDeQuitarPrendaSeEliminaDeSuGuardarropaYSeAlmacenaComoPropuestaAceptada() {
+    unUsuario.proponerQuitarPrendaA(otroUsuario, unGuardarropa, collar);
 
     Propuesta laPropuesta = otroUsuario.getPropuestasPendientes().stream().findFirst().orElse(null);
 
-    assertTrue(unGuardarropas.getPrendasDisponibles().contains(collar));
+    assertTrue(unGuardarropa.getPrendasDisponibles().contains(collar));
     otroUsuario.aceptarPropuesta(laPropuesta);
-    assertFalse(unGuardarropas.getPrendasDisponibles().contains(collar));
+    assertFalse(unGuardarropa.getPrendasDisponibles().contains(collar));
 
     assertEquals(1, otroUsuario.getPropuestasAceptadas().size());
   }
 
   @Test
-  void siUnUsuarioDeshaceUnaPropuestaAceptadaDeAgregarPrendaSeQuitaDeSuGuardarropasYSeEliminaDePropuestaAceptadas() {
+  void siUnUsuarioDeshaceUnaPropuestaAceptadaDeAgregarPrendaSeQuitaDeSuGuardarropaYSeEliminaDePropuestaAceptadas() {
     Prenda nuevaPrenda = new Prenda(null, null, null, null, null);
-    unUsuario.proponerAgregarPrendaA(otroUsuario, unGuardarropas, nuevaPrenda);
+    unUsuario.proponerAgregarPrendaA(otroUsuario, unGuardarropa, nuevaPrenda);
 
     Propuesta laPropuesta = otroUsuario.getPropuestasPendientes().stream().findFirst().orElse(null);
     otroUsuario.aceptarPropuesta(laPropuesta);
@@ -101,12 +101,12 @@ class UsuarioTest {
     assertEquals(1, otroUsuario.getPropuestasAceptadas().size());
     otroUsuario.deshacerPropuesta(laPropuesta);
     assertTrue(otroUsuario.getPropuestasAceptadas().isEmpty());
-    assertFalse(unGuardarropas.getPrendasDisponibles().contains(nuevaPrenda));
+    assertFalse(unGuardarropa.getPrendasDisponibles().contains(nuevaPrenda));
   }
 
   @Test
-  void siUnUsuarioDeshaceUnaPropuestaAceptadaDeQuitarPrendaSeVuelveAAgregarASuGuardarropasYSeEliminaDePropuestaAceptadas() {
-    unUsuario.proponerQuitarPrendaA(otroUsuario, unGuardarropas, collar);
+  void siUnUsuarioDeshaceUnaPropuestaAceptadaDeQuitarPrendaSeVuelveAAgregarASuGuardarropaYSeEliminaDePropuestaAceptadas() {
+    unUsuario.proponerQuitarPrendaA(otroUsuario, unGuardarropa, collar);
 
     Propuesta laPropuesta = otroUsuario.getPropuestasPendientes().stream().findFirst().orElse(null);
     otroUsuario.aceptarPropuesta(laPropuesta);
@@ -114,6 +114,6 @@ class UsuarioTest {
     assertEquals(1, otroUsuario.getPropuestasAceptadas().size());
     otroUsuario.deshacerPropuesta(laPropuesta);
     assertTrue(otroUsuario.getPropuestasAceptadas().isEmpty());
-    assertTrue(unGuardarropas.getPrendasDisponibles().contains(collar));
+    assertTrue(unGuardarropa.getPrendasDisponibles().contains(collar));
   }
 }

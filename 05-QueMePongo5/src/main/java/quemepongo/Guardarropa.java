@@ -3,12 +3,12 @@ package quemepongo;
 import java.util.List;
 import quemepongo.excepciones.PrendaInexistenteException;
 
-public class Guardarropas {
+public class Guardarropa {
   private List<Prenda> prendasDisponibles;
   private ServicioMeteorologico servicioMeteorologico;
 
-  public Guardarropas(List<Prenda> prendasDisponibles,
-                      ServicioMeteorologico servicioMeteorologico) {
+  public Guardarropa(List<Prenda> prendasDisponibles,
+                     ServicioMeteorologico servicioMeteorologico) {
     this.prendasDisponibles = prendasDisponibles;
     this.servicioMeteorologico = servicioMeteorologico;
   }

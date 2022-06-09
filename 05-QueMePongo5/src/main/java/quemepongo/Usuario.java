@@ -7,31 +7,31 @@ import quemepongo.command.Propuesta;
 import quemepongo.command.Quitar;
 
 public class Usuario {
-  private List<Guardarropas> guardarropas;
+  private List<Guardarropa> guardarropas;
   private List<Propuesta> propuestasPendientes;
   private List<Propuesta> propuestasAceptadas;
 
-  public Usuario(List<Guardarropas> guardarropas) {
+  public Usuario(List<Guardarropa> guardarropas) {
     this.guardarropas = guardarropas;
     this.propuestasPendientes = new ArrayList<>();
     this.propuestasAceptadas = new ArrayList<>();
   }
 
   public void proponerAgregarPrendaA(Usuario otroUsuario,
-                                     Guardarropas guardarropas,
+                                     Guardarropa guardarropa,
                                      Prenda prenda) {
-    otroUsuario.guardarPropuesta(new Agregar(guardarropas, prenda));
+    otroUsuario.guardarPropuesta(new Agregar(guardarropa, prenda));
   }
 
-  public void proponerQuitarPrendaA(Usuario otroUsuario, Guardarropas guardarropas, Prenda prenda) {
-    otroUsuario.guardarPropuesta(new Quitar(guardarropas, prenda));
+  public void proponerQuitarPrendaA(Usuario otroUsuario, Guardarropa guardarropa, Prenda prenda) {
+    otroUsuario.guardarPropuesta(new Quitar(guardarropa, prenda));
   }
 
   private void guardarPropuesta(Propuesta propuesta) {
     this.propuestasPendientes.add(propuesta);
   }
 
-  public List<Guardarropas> getGuardarropas() {
+  public List<Guardarropa> getGuardarropas() {
     return guardarropas;
   }
 

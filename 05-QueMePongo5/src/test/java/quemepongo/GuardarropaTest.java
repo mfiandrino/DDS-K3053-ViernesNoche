@@ -11,8 +11,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import quemepongo.excepciones.PrendaInexistenteException;
 
-class GuardarropasTest {
-  private Guardarropas unGuardarropas;
+class GuardarropaTest {
+  private Guardarropa unGuardarropa;
   private List<Prenda> prendas;
   private Prenda collar;
   private Prenda remera;
@@ -39,7 +39,7 @@ class GuardarropasTest {
     prendas.add(zapatillas);
 
     unServicio = mock(ServicioMeteorologico.class);
-    unGuardarropas = new Guardarropas(prendas, unServicio);
+    unGuardarropa = new Guardarropa(prendas, unServicio);
   }
 
   @Test
@@ -47,7 +47,7 @@ class GuardarropasTest {
     when(unServicio.getTemperature("Buenos Aires")).thenReturn(32);
 
     assertThrows(PrendaInexistenteException.class,
-        () -> unGuardarropas.generarAtuendo("Buenos Aires"));
+        () -> unGuardarropa.generarAtuendo("Buenos Aires"));
   }
 
   @Test
@@ -56,7 +56,7 @@ class GuardarropasTest {
 
     prendas.add(remera);
 
-    assertEquals(remera, unGuardarropas.generarAtuendo("Buenos Aires").getPrendaSuperior());
-    assertEquals(pantalonCorto, unGuardarropas.generarAtuendo("Buenos Aires").getPrendaInferior());
+    assertEquals(remera, unGuardarropa.generarAtuendo("Buenos Aires").getPrendaSuperior());
+    assertEquals(pantalonCorto, unGuardarropa.generarAtuendo("Buenos Aires").getPrendaInferior());
   }
 }

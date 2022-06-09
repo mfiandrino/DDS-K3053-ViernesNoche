@@ -1,24 +1,24 @@
 package quemepongo.command;
 
-import quemepongo.Guardarropas;
+import quemepongo.Guardarropa;
 import quemepongo.Prenda;
 
 public class Agregar implements Propuesta {
-  private Guardarropas guardarropas;
+  private Guardarropa guardarropa;
   private Prenda prenda;
 
-  public Agregar(Guardarropas guardarropas, Prenda prenda) {
-    this.guardarropas = guardarropas;
+  public Agregar(Guardarropa guardarropa, Prenda prenda) {
+    this.guardarropa = guardarropa;
     this.prenda = prenda;
   }
 
   @Override
   public void ejecutar() {
-    guardarropas.agregarPrenda(prenda);
+    guardarropa.agregarPrenda(prenda);
   }
 
   @Override
   public void deshacer() {
-    guardarropas.quitarPrenda(prenda);
+    guardarropa.quitarPrenda(prenda);
   }
 }

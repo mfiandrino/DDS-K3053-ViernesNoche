@@ -1,24 +1,24 @@
 package quemepongo.command;
 
-import quemepongo.Guardarropas;
+import quemepongo.Guardarropa;
 import quemepongo.Prenda;
 
 public class Quitar implements Propuesta {
-  private Guardarropas guardarropas;
+  private Guardarropa guardarropa;
   private Prenda prenda;
 
-  public Quitar(Guardarropas guardarropas, Prenda prenda) {
-    this.guardarropas = guardarropas;
+  public Quitar(Guardarropa guardarropa, Prenda prenda) {
+    this.guardarropa = guardarropa;
     this.prenda = prenda;
   }
 
   @Override
   public void ejecutar() {
-    guardarropas.quitarPrenda(prenda);
+    guardarropa.quitarPrenda(prenda);
   }
 
   @Override
   public void deshacer() {
-    guardarropas.agregarPrenda(prenda);
+    guardarropa.agregarPrenda(prenda);
   }
 }
