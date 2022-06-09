@@ -28,8 +28,9 @@ ZAPATO,
 ZAPATILLA,
 PANTALON,
 SHORT,
-CAMISA,
 REMERA,
+REMERA_MANGA_LARGA,
+CAMISA,
 COLLAR,
 GORRA;
 
@@ -38,7 +39,7 @@ tempMaxima: Integer
 
 TipoDePrenda(categoria, tempMaxima)
 getCategoria(): Categoria
-getTempMaxima(): Integer
+esAptaParaTemperatura(): Boolean
 }
 
 enum Categoria{
@@ -56,7 +57,7 @@ colorSecundario: Color
 trama: Trama
 
 Prenda(tipoDePrenda,material,colorPrimario,colorSecundario,trama)
-getTempMaxima(): Integer
+esAptaParaTemperatura(temperatura): Boolean
 getCategoria(): Categoria
 getters()
 }
@@ -80,7 +81,7 @@ prendaInferior: Prenda
 prendaCalzado: Prenda
 }
 
-class Usuario{
+class Guardarropa{
 prendas: [Prenda]
 servicioMeteorologico: ServicioMeteorologico
 
@@ -110,8 +111,8 @@ TipoDePrenda <-- Prenda
 Prenda <.. Borrador
 
 ServicioMeteorologico <|.. ServicioAccuWeather
-ServicioMeteorologico <-- Usuario
-Prenda <-- Usuario
-Atuendo <.. Usuario
+ServicioMeteorologico <-- Guardarropa
+Prenda <-- Guardarropa
+Atuendo <.. Guardarropa
 
 @enduml
