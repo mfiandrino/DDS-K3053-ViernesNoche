@@ -84,8 +84,15 @@ prendaCalzado: Prenda
 class Guardarropa{
 prendas: [Prenda]
 servicioMeteorologico: ServicioMeteorologico
+propuestasPendientes: [Propuesta]
+propuestasAceptadas: [Propuesta]
 
 generarAtuendo(): Atuendo
+proponerAgregar(prenda)
+proponerQuitar(prenda)
+aceptarPropuesta(propuesta)
+rechazarPropuesta(propuesta)
+deshacerPropuesta(propuesta)
 }
 
 interface ServicioMeteorologico{
@@ -98,13 +105,6 @@ getTemperature(location): Integer
 
 class Usuario{
 guardarropas: [Guardarropa]
-propuestasPendientes: [Propuesta]
-propuestasAceptadas: [Propuesta]
-
-porponerAgregarPrendaA(otroUsuario, guardarropa, prenda)
-porponerQuitarPrendaA(otroUsuario, guardarropa, prenda)
-aceptarPropuesta(propuesta)
-deshacerPropuesta(propuesta)
 }
 
 interface Propuesta{
@@ -149,7 +149,6 @@ Propuesta <|.. Agregar
 Propuesta <|.. Quitar
 
 Guardarropa <-- Usuario
-Propuesta <-- Usuario
-Prenda <.. Usuario
+Propuesta <-- Guardarropa
 
 @enduml
