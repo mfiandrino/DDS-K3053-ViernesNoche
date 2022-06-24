@@ -1,7 +1,6 @@
 package quemepongo;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -9,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import quemepongo.command.Propuesta;
 import quemepongo.excepciones.PrendaInexistenteException;
 
 class GuardarropaTest {
@@ -58,5 +58,66 @@ class GuardarropaTest {
 
     assertEquals(remera, unGuardarropa.generarAtuendo("Buenos Aires").getPrendaSuperior());
     assertEquals(pantalonCorto, unGuardarropa.generarAtuendo("Buenos Aires").getPrendaInferior());
+  }
+
+  @Test
+  void siAUnGuardarropasSeLeProponeAgregarUnaPrendaSeLeAgregaComoPropuestaPendiente() {
+    Prenda nuevaPrenda = new Prenda(null, null, null, null, null);
+    unGuardarropa.proponerAgregar(nuevaPrenda);
+
+    assertEquals(1, unGuardarropa.getPropuestasPendientes().size());
+  }
+
+  @Test
+  void siUnUsuarioProponeQuitarUnaPrendaSeLeAgregaComoPropuestaPendiente() {
+    unGuardarropa.proponerQuitar(collar);
+
+    assertEquals(1, unGuardarropa.getPropuestasPendientes().size());
+  }
+
+  @Test
+  void siUnGuardarropaAceptaUnaPropuestaPendienteDeAgregarPrendaSeAgregaASuListaDePrendasYSeAlmacenaComoPropuestaAceptada() {
+    Prenda nuevaPrenda = new Prenda(null, null, null, null, null);
+    Propuesta laPropuesta = unGuardarropa.proponerAgregar(nuevaPrenda);
+
+    assertFalse(unGuardarropa.getPrendasDisponibles().contains(nuevaPrenda));
+    unGuardarropa.aceptarPropuesta(laPropuesta);
+    assertTrue(unGuardarropa.getPrendasDisponibles().contains(nuevaPrenda));
+
+    assertEquals(1, unGuardarropa.getPropuestasAceptadas().size());
+  }
+
+  @Test
+  void siUnGuardarropaAceptaUnaPropuestaPendienteDeQuitarPrendaSeEliminaDeSuListaDePrendasYSeAlmacenaComoPropuestaAceptada() {
+    Propuesta laPropuesta = unGuardarropa.proponerQuitar(collar);
+
+    assertTrue(unGuardarropa.getPrendasDisponibles().contains(collar));
+    unGuardarropa.aceptarPropuesta(laPropuesta);
+    assertFalse(unGuardarropa.getPrendasDisponibles().contains(collar));
+
+    assertEquals(1, unGuardarropa.getPropuestasAceptadas().size());
+  }
+
+  @Test
+  void siUnGuardarropaDeshaceUnaPropuestaAceptadaDeAgregarPrendaSeQuitaDeSuListaDePrendasYSeEliminaDePropuestaAceptadas() {
+    Prenda nuevaPrenda = new Prenda(null, null, null, null, null);
+    Propuesta laPropuesta = unGuardarropa.proponerAgregar(nuevaPrenda);
+    unGuardarropa.aceptarPropuesta(laPropuesta);
+
+    assertEquals(1, unGuardarropa.getPropuestasAceptadas().size());
+    unGuardarropa.deshacerPropuesta(laPropuesta);
+    assertTrue(unGuardarropa.getPropuestasAceptadas().isEmpty());
+    assertFalse(unGuardarropa.getPrendasDisponibles().contains(nuevaPrenda));
+  }
+
+  @Test
+  void siUnGuardarropaDeshaceUnaPropuestaAceptadaDeQuitarPrendaSeVuelveAAgregarASuListaDePrendasYSeEliminaDePropuestaAceptadas() {
+    Propuesta laPropuesta = unGuardarropa.proponerQuitar(collar);
+    unGuardarropa.aceptarPropuesta(laPropuesta);
+
+    assertEquals(1, unGuardarropa.getPropuestasAceptadas().size());
+    unGuardarropa.deshacerPropuesta(laPropuesta);
+    assertTrue(unGuardarropa.getPropuestasAceptadas().isEmpty());
+    assertTrue(unGuardarropa.getPrendasDisponibles().contains(collar));
   }
 }

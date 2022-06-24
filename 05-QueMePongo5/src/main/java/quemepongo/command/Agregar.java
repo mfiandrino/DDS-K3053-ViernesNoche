@@ -9,7 +9,7 @@ public class Agregar implements Propuesta {
 
   public Agregar(Guardarropa guardarropa, Prenda prenda) {
     this.guardarropa = guardarropa;
-    this.prenda = prenda;
+    this.prenda = prenda; 
   }
 
   @Override
